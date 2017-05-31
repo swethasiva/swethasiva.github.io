@@ -22,7 +22,7 @@
         }
 
         function spinslot()                              // function to generate random number in each slot and check for winning condition
-        {  
+        {  inter =setInterval(spin,20);
 
           if ( points > 0) 
             {  
@@ -51,11 +51,7 @@
             document.getElementById("p2").innerHTML = points;
         }
 
-        function start()
-        {
-            inter =setInterval(spin,20);
-
-        }
+        
 
       
  function spin()
@@ -87,8 +83,6 @@ function reset() {                                  // function to reset the val
     
 
             clearInterval(inter);
-            spinslots();
-
     }
         
     </script>
@@ -170,7 +164,7 @@ function reset() {                                  // function to reset the val
 
 
 <p>
-    <input id ="spinclick"type="button" value="   START SPIN      " onClick="start()">
+    <input id ="spinclick"type="button" value="   START SPIN      " onClick="spinslot()">
      <input id ="rset" type="button" value="   RESET     "   onclick="reset()">
      <input id ="stop" type="button" value="   STOP     "   onclick="stop()">
 </p>
