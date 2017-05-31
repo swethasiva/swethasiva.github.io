@@ -14,6 +14,7 @@
         var bthree;
         var inter;
         var spincount=0;
+        var flag =0;
 
        
 
@@ -59,7 +60,7 @@
 
       
  function spin()
- {
+ {              flag=1;
                 bone = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
                  btwo = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
                 bthree =Math.floor(Math.random() * (3 - 1 + 1)) + 1;
@@ -92,7 +93,10 @@ function reset() {                                  // function to reset the val
     
 
             clearInterval(inter);
+            if(flag ==1)
+            { flag=0;
             spinslot();
+        }
 
 
     }
