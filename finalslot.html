@@ -53,8 +53,9 @@
         }
 
         function start()
-        {
+        {   if(flag==0){
             inter =setInterval(spin,20);
+        }
 
         }
 
@@ -72,7 +73,8 @@
                 document.getElementById('third').innerHTML = bthree;
                 spincount++;
                 if(spincount==100)
-                    {clearInterval(inter);
+                    { flag=0;
+                        clearInterval(inter);
                         spinslot();
 
                     }
