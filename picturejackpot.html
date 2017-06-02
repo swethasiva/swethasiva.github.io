@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CHERRYJACK</title>
+    
+    <style>
+        #first
+        {
+           margin-top: 100px; 
+        }
+    
+    </style>
+
+    <script>
+        var points = 50; 
+        var bone;
+        var btwo;
+        var bthree;
+        var inter;
+        var spincount=0;
+        var flag =0;
+        var ar=["cherry.jpg","cherry.jpg","cherry.jpg","treasure.jpg","treasure.jpg","treasure.jpg","banana.jpg","banana.jpg","banana.jpg","cherry.jpg","cherry.jpg","cherry.jpg"];
+       function getRandomArbitrary(min, max) 
+       {
+    return Math.random() * (max - min) + min;
+       }
+
+        function messagedisplay( $message ) {                  //function to display winning or loosing message
+            document.getElementById('messages').innerHTML = $message;
+        }
+
+        function spinslot()                              // function to generate random number in each slot and check for winning condition
+        {  
+
+          if ( points > 0) 
+            {  
+                     if ( bone == btwo && btwo == bthree && bthree == bone  ) 
+                     {
+                    messagedisplay( 'YOU WON THE GAME !' );
+                    update(100); }
+
+                     else 
+                   {
+                    messagedisplay( 'OOPS !!! TRY AGAIN ' );
+                    update(-5);
+                   
+                   }  spincount=0;
+            }
+            else if(points==0)
+            {
+                messagedisplay( ' GAME OVER ' );
+            } 
+
+        
+        }
+
+        function update( value ) {                               //function to update points
+            points = points + value;
+            document.getElementById("p2").innerHTML = points;
+        }
+
+        function start()
+        {   if(flag==0){
+            inter =setInterval(spin,20);
+        }
+
+        }
+
+      
+ function spin()
+ {              flag=1;
+                bone = Math.floor( getRandomArbitrary(0, 3)*(3-1+1))+1;
+                 btwo = Math.floor(getRandomArbitrary(0, 3)*(3-1+1))+1 ;
+                bthree =Math.floor(getRandomArbitrary(0, 3)*(3-1+1))+1;
+    document.getElementById('first').src =ar[bone];
+  document.getElementById('second').src =ar[btwo];
+  document.getElementById('third').src =ar[bthree];
+                
+
+               
+                spincount++;
+                if(spincount==100)
+                    { flag=0;
+                        clearInterval(inter);
+                        spinslot();
+
+                    }
+ }
+
+
+function reset() {                                  // function to reset the values to initial one.
+    points = 50 ;
+     document.getElementById("p2").innerHTML = points;
+     document.getElementById('first').src =ar[0];
+  document.getElementById('second').src =ar[0];
+  document.getElementById('third').src =ar[0];
+
+}
+
+
+ function stop() {
+    
+
+            clearInterval(inter);
+            if(flag ==1)
+            { flag=0;
+            spinslot();
+        }
+
+
+    }
+        
+    </script>
+
+    <style>
+        body {
+            text-align: center;
+            background-image: url("back.jpg");
+        }
+
+        p, a {
+            color: yellow;
+            font-weight: 12px;
+        }
+
+        .title {
+            font-size: 50px;
+            text-align: center;
+            color:#DDFA07;
+           
+            font-style: oblique;
+        }
+
+        #machine {
+            text-align: center;
+        }
+
+        #spinclick  {
+            border-style: inset;
+            border-color: "yellow";
+            border-width: 5px;
+            background-color: #B5B3D6;
+            color : #900C3F;
+            font-family: "courier" ;
+
+
+        }
+
+
+        h1{
+            color: white;
+        }
+
+         #rset,#stop {
+            border-style: inset;
+            border-color: "yellow";
+            border-width: 5px;
+            background-color: #B5B3D6;
+            color : #900C3F;
+            font-family: "courier" ;
+
+        }
+
+   
+
+
+    </style>
+</head>
+
+<body>
+
+<p class="title">
+    CHERRY JACKPOT GAME .
+    <br>
+    TRY YOUR LUCK HERE !!!!!
+</p>
+
+
+<div id="machine">
+    <svg width="550" height="250" viewBox="0 0 1600 500">
+    <rect x="50" y="170" width="300" height="300" fill="#DAF7A6" stroke="red" stroke-width="15"></rect>
+    <rect x="600" y="170" width="300" height="300" fill="#DAF7A6" stroke="red" stroke-width="15"></rect>
+    <rect x="1150" y="170" width="300" height="300" fill="#DAF7A6" stroke="red" stroke-width="15"></rect>
+    <img src="cherry.jpg" id="first" height="100px" width="100px">
+    <img src="cherry.jpg" id="second" height="100px" width="100px">
+    <img src="cherry.jpg" id="third" height="100px" width="100px">
+    </svg>
+</div>
+
+
+<p>
+    <input id ="spinclick"type="button" value="   START SPIN      " onClick="start()">
+     <input id ="rset" type="button" value="   RESET     "   onclick="reset()">
+     <input id ="stop" type="button" value="   STOP     "   onclick="stop()">
+</p>
+
+
+
+<p id="p2"><b>50</b></p>
+
+<h1 id="messages"></h1>
+</body>
+</html>
