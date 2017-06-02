@@ -5,26 +5,27 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>CHERRYJACK</title>
     
     <style>
         #first
         {
            margin-left:10px;
-            margin-top:100px;
-        padding-top: 50px;} 
+           margin-top:100px;
+           padding-top: 50px;} 
         
          #second
         {
            margin-left:10px;
-            margin-top:100px;
-         padding-top: 50px} 
+           margin-top:100px;
+           padding-top: 50px} 
         
          #third
         {
            margin-left:10px;
-            margin-top:100px;
-        padding-top: 50px} 
+           margin-top:100px;
+           padding-top: 50px} 
                 
                
         
@@ -39,8 +40,11 @@
         var inter;
         var spincount=0;
         var flag =0;
-        var ar=["cherry.jpg","cherry.jpg","cherry.jpg","treasure.jpg","treasure.jpg","treasure.jpg","banana.jpg","banana.jpg","banana.jpg","cherry.jpg","cherry.jpg","cherry.jpg"];
+        var min=0;
+        var ar=["cherry.jpg","treasure.jpg","banana.jpg"];
+        var max=ar.length-1;
        function getRandomArbitrary(min, max) 
+        
        {
     return Math.random() * (max - min) + min;
        }
@@ -54,18 +58,21 @@
 
           if ( points > 0) 
             {  
-                     if ( bone == btwo && btwo == bthree && bthree == bone  ) 
+                     if( bone==btwo && btwo==bthree && bthree==bone  ) 
                      {
                     messagedisplay( 'YOU WON THE GAME !' );
                     update(100); 
-                     alert("called");}
+                     alert("called");
+                     }
 
                      else 
                    {
                     messagedisplay( 'OOPS !!! TRY AGAIN ' );
                     update(-5);
+                      
                    
-                   }  spincount=0;
+                   }  
+                spincount=0;
             }
             else if(points==0)
             {
@@ -90,9 +97,9 @@
       
  function spin()
  {              flag=1;
-                bone = Math.floor( getRandomArbitrary(0, 3)*(3-1+1))+1;
-                 btwo = Math.floor(getRandomArbitrary(0, 3)*(3-1+1))+1 ;
-                bthree =Math.floor(getRandomArbitrary(0, 3)*(3-1+1))+1;
+                bone = Math.floor( getRandomArbitrary(min, max));
+                 btwo = Math.floor(getRandomArbitrary(min, max));
+                bthree =Math.floor(getRandomArbitrary(min, max));
     document.getElementById('first').src =ar[bone];
   document.getElementById('second').src =ar[btwo];
   document.getElementById('third').src =ar[bthree];
@@ -126,6 +133,9 @@ function reset() {                                  // function to reset the val
             if(flag ==1)
             { flag=0;
             spinslot();
+             console.log(bone);
+             console.log(btwo);
+             console.log(bthree);
         }
 
 
