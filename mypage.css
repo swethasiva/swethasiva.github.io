@@ -218,6 +218,8 @@ legend
         padding-left: 10px;
         padding-right: 10px;
     }
+    
+    
 }
 
 
@@ -234,12 +236,12 @@ legend
 {
     #nav-bar
     {
-        height:40%;
+        height:20%;
     }
     
     li
     {
-     height:10%;
+     height:20%;
     }
     
     
@@ -271,13 +273,13 @@ legend
         padding:3px;
     }
     
-a:hover
+li a:hover
 {
     background-color: black;
     padding-left:10px;
     padding-right: 10px;
-    padding-top:5px;
-    padding-bottom: 5px;
+    padding-top:1px;
+    padding-bottom: 1px;
     color:white;
     border-style: double;
     border-color:dimgrey;
@@ -285,8 +287,23 @@ a:hover
     border-width: 5px;
 }
 
+    legend
+    {
+        
+    }
+    
+    img
+    {
+        width:75px;
+        height:75px;
+        
+        
+    }
 
-
+    span
+    {
+        font-size:10px;
+    }
 }
 
    
