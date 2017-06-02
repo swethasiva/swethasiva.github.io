@@ -10,8 +10,24 @@
     <style>
         #first
         {
-           margin-top: 100px; 
-        }
+           margin-left:10px;
+            margin-top:100px;
+        padding-top: 50px;} 
+        
+         #second
+        {
+           margin-left:10px;
+            margin-top:100px;
+         padding-top: 50px} 
+        
+         #third
+        {
+           margin-left:10px;
+            margin-top:100px;
+        padding-top: 50px} 
+                
+               
+        
     
     </style>
 
@@ -41,7 +57,8 @@
                      if ( bone == btwo && btwo == bthree && bthree == bone  ) 
                      {
                     messagedisplay( 'YOU WON THE GAME !' );
-                    update(100); }
+                    update(100); 
+                     alert("called");}
 
                      else 
                    {
@@ -181,14 +198,12 @@ function reset() {                                  // function to reset the val
 
 
 <div id="machine">
-    <svg width="550" height="250" viewBox="0 0 1600 500">
-    <rect x="50" y="170" width="300" height="300" fill="#DAF7A6" stroke="red" stroke-width="15"></rect>
-    <rect x="600" y="170" width="300" height="300" fill="#DAF7A6" stroke="red" stroke-width="15"></rect>
-    <rect x="1150" y="170" width="300" height="300" fill="#DAF7A6" stroke="red" stroke-width="15"></rect>
+    
+    
     <img src="cherry.jpg" id="first" height="100px" width="100px">
     <img src="cherry.jpg" id="second" height="100px" width="100px">
     <img src="cherry.jpg" id="third" height="100px" width="100px">
-    </svg>
+    
 </div>
 
 
