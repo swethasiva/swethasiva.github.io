@@ -126,10 +126,24 @@ legend
 
 
 
+#info
+{
+    font-size:30px;
+    background-color: black;
+    color:#EDFC03;
+    
+}
 
 
+.game
+{
+    text-decoration: none;
+    font-size: 20px;
+    background-color: black;
+    color:white;
+   
 
-
+}
 
 
 
@@ -194,6 +208,14 @@ legend
     border-radius: 2em;
     border-width: 5px;
 }
+    
+    #info
+{
+    font-size:20px;
+    background-color: black;
+    color:#EDFC03;
+    
+}
 }
 
 
@@ -219,6 +241,13 @@ legend
         padding-right: 10px;
     }
     
+    #info
+{
+    font-size:10px;
+    background-color: black;
+    color:beige;
+    
+}
     
 }
 
